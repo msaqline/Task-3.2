@@ -1,0 +1,20 @@
+
+int resistor = A5;
+
+
+void setup() {
+    pinMode(resistor, INPUT);
+
+    digitalWrite(resistor, HIGH);
+
+}
+
+void loop() {
+    int light = analogRead(resistor);
+    int i = 1;
+    
+    if(light > i) Particle.publish("sun", "up", PRIVATE);
+    if(light < i) Particle.publish("sun", "down", PRIVATE);
+    delay(5000);
+
+}
